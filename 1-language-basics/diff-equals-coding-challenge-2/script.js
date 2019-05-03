@@ -41,4 +41,3 @@ if (averageJohn > averageMike && averageJohn > averageMary) {
 
 console.log(winner);
 
-// eismer escola dos servidores o mudo do servidor
