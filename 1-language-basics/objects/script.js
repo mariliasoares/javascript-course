@@ -28,6 +28,7 @@ var person = {
         this.age = 2019 - this.birthYear;
     }
 };
+
 person.calcAge();
 console.log(person);
 
@@ -45,3 +46,38 @@ console.log(boy);
 
 // only objects have methods
 // arrays are actually also objects, the only way they can have methods
+
+var mark = {
+    fullname: 'Mark Ruffalo',
+    mass: 66,
+    height: 1.81,
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height * this.height);
+        return this.BMI; 
+    }
+};
+
+var john = {
+    fullname: 'John Bowie',
+    mass: 66,
+    height: 1.81,
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height * this.height);
+        return this.BMI; 
+    }
+};
+
+var markBMI = mark.calcBMI();
+var johnBMI = john.calcBMI();
+
+console.log(markBMI);
+console.log(johnBMI);
+
+if (markBMI > johnBMI) {
+    console.log(mark.fullname + ' has the highest BMI of ' + markBMI + ' kg.');
+} else if (markBMI < johnBMI) {
+    console.log(john.fullname + ' has the highest BMI of ' + johnBMI + ' kg.');
+} else if (markBMI === johnBMI) {
+    console.log('Both John and Mark have the same BMI of ' + johnBMI + ' kg.');
+}
+
