@@ -14,8 +14,45 @@ things.pop();
 // removes the first element
 things.shift();
 
-/* ************ Objects *************  
-*/
+/************************** Objects **************/
+//CREATE THE OBJECT
+//literal notation 
+var hotel = {}
+hotel.name = 'Perk';
+hotel.checkName = function() {
+    return this.name;
+};
+
+//object constructor notation
+var hotel = new Object();
+hotel.name = 'Perk';
+hotel.checkName = function() {
+    return this.name;
+};
+
+//CREATING WITH PROPERTIES
+//literal notation:with a comma between each pair
+var hotel = {
+    name: 'Perk',
+    rooms: 22,
+    checkName: function() {
+        return this.name;
+    }
+};
+
+//object constructor notation: can be used to create multiple objects.
+function Hotel(name, rooms, booked) {
+    this.name = name;
+    this.rooms = rooms;
+    this.booked = booked;
+    this.checkAvailability = function() {
+        return this.rooms - this.booked;
+    };
+}
+var quackHotel = new Hotel('Quay', 40, 25);
+var perkHotel = new Hotel('Perk', 120, 70);
+
+/****************************************************/
 
 // can put all kinds of different data types
 var person = {
