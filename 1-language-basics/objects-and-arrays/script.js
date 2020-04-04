@@ -1,18 +1,37 @@
-/***** ARRAYS *******
+/***** ARRAYS ******* */
 
 var things = ['Holdor', 1912, 'ice cream'];
+console.log(things);
 
 // it will add an element at the end of the array
 things.push('Plus one'); 
+console.log(things);
 
 // adding to the beginning of the array
 things.unshift('The end');
+console.log(things);
 
 // removes the element from the end
 things.pop();
+console.log(things);
 
 // removes the first element
 things.shift();
+console.log(things);
+
+// ************ SPREAD OPERATOR *************
+// when created an object or when created an array and then could use
+// the three dots in there to take an existing object or an existing array {...} [...]
+// and pull out all the key-value pairs or all the elements and add them to the new object/array
+
+// spread operator for copying  
+let arr = ['a','b','c']; 
+let arr2 = [...arr]; 
+console.log(arr); // [ 'a', 'b', 'c' ] 
+arr2.push('d'); //inserting an element at the end of arr2 
+console.log(arr2); // [ 'a', 'b', 'c', 'd' ] 
+console.log(arr); // [ 'a', 'b', 'c' ] 
+
 
 /************************** Objects **************/
 //CREATE THE OBJECT
@@ -117,4 +136,3 @@ if (markBMI > johnBMI) {
 } else if (markBMI === johnBMI) {
     console.log('Both John and Mark have the same BMI of ' + johnBMI + ' kg.');
 }
-

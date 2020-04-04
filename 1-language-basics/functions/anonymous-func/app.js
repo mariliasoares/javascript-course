@@ -41,3 +41,39 @@ console.dir(startGame);
 startNoneFuncBtn.addEventListener('click', function() {
   console.log('Here I am! None function here');
 });
+
+
+// ************ NORMAL CALLING *************
+//
+const sumUp = (numbers) => {
+  let sum = 0;
+  for (const num of numbers) {
+    sum += num;
+  }
+  return sum;
+};
+
+console.log(sumUp([1, 5, 10, 30, 60]));
+
+
+// ************ REST OPERATOR *************
+//
+const sumUpSpread = (...numbers) => { //merges all parameters into an array
+  let sum = 0;
+  for (const num of numbers) { //was introduced in ES6
+    sum += num;
+  }
+  return sum;
+};
+
+const subtractUp = function() { 
+  let sum = 0;
+  for (const num of arguments) { //only works with the 'function' keyword //array-like //dont use that
+    sum -= num;
+  }
+  return sum;
+}
+
+console.log(sumUpSpread(1, 5, 10, 30, 60));
+console.log(subtractUp(1, 5, 10, 30, 60));
+
