@@ -77,3 +77,42 @@ const subtractUp = function() {
 console.log(sumUpSpread(1, 5, 10, 30, 60));
 console.log(subtractUp(1, 5, 10, 30, 60));
 
+// ************ BIND METHOD *************
+//
+
+const combine = (resultHandler, operation, ...numbers) => {
+  const validateNumber = number => {
+    return isNaN(number) ? 0 : number;
+  };
+
+  let sum = 0;
+  for (const num of numbers) {
+    if (operation === 'ADD') {
+      sum += validateNumber(num);
+    } else {
+      sum -= validateNumber(num);
+    }
+  }
+  resultHandler(sum);
+};
+
+// const subtractUp = (resultHandler, ...numbers) => {
+//   const validateNumber = number => {
+//     return isNaN(number) ? 0 : number;
+//   };
+
+//   let sum = 0;
+//   for (const num of numbers) {
+//     sum -= validateNumber(num);
+//   }
+//   resultHandler(sum);
+// };
+
+const showResult = (messageText, result) => {
+  alert(`${messageText} ${result}`);
+};
+
+//bind allows us to preconfigure functions in places where we need to pass a value but we also dont want
+//to directly execute a function
+combine(showResult.bind(this, 'The result after adding all numbers is:'), 'ADD', 10, 20, 30);
+combine(showResult.bind(this, 'The result after subtracting all numbers is:'), 'SUB', 10, 20, 30);
