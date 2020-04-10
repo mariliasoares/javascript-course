@@ -54,3 +54,4 @@ const ulParent = li.parentNode;
 console.dir(ulParent.previousSibling);
 console.dir(ulParent.previousElementSibling);
 console.dir(ulParent.nextElementSibling);
+

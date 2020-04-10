@@ -5,18 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>DOM Interaction</title>
+    <style>
+      .red-bg {
+        background-color: red;
+        color: white;
+      }
+
+      .visible {
+        display: block;
+      }
+
+      .invisible {
+        display: none;
+      }
+    </style>
     <script src="script.js" defer></script>
+    <script src="stylingDOM.js" defer></script>
     <!-- import your script here such that it only runs after all html content has been parsed -->
     <!-- defer means: download it early but only run it once you're done with parsing-->
     <!-- without it, the script might execute too early and therefore might try to query for elements which havent been parsed and loaded in here-->
   </head>
   <body>
     <header><h1 id="main-title">Dive into the DOM</h1></header>
-    <ul>
-      <li class="list-item">Item 1</li>
-      <li class="list-item">Item 2</li>
-      <li class="list-item">Item 3</li>
-    </ul>
+    <section class="red-bg visible">
+      <ul>
+        <li class="list-item">Item 1</li>
+        <li class="list-item">Item 2</li>
+        <li class="list-item">Item 3</li>
+      </ul>
+    </section>
+    <button name="Toggle Visibility">Toggle Visibility</button>
     <input type="text" value="Hello world!">
   </body>
 </html>
