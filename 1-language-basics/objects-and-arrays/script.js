@@ -5,7 +5,6 @@ const numbers = [1, 2, 3];
 const moreNumbers = Array.from('Hi!');
 console.log(moreNumbers);
 
-
 var things = ['Holdor', 1912, 'ice cream'];
 console.log(things);
 
@@ -32,8 +31,118 @@ things.splice(0, 1, 'Good food');
 // (-1, 1)
 console.log('splice method ' + things);
 
+//returns a new brand array > copy an array without poiting to the same address
+let storedResults = things.slice();
+console.log('slice method ' + storedResults);
 
-// ************ SPREAD OPERATOR *************
+//works for selecting ranges of an array, part of array
+// slice(2) => starting in 2 to all the others
+storedResults = things.slice(0, 2);
+console.log('slice method ' + storedResults);
+
+//pull out everything in a brand new array, new address
+const arrayConcat = storedResults.concat([]);
+console.log(arrayConcat);
+
+//how to find some element for primitive values
+console.log(arrayConcat.indexOf(1912));
+
+
+// **** FIND METHOD
+// where manuel is? when the array is working with reference values
+// find() takes a function as an argument, anonymous or arrow, can accept three args
+///1 arg: single object of that array, 2 arg: index of that single element, 3 arg: the full array
+const personData = [{name: 'Max'}, {name: 'Manuel'}];
+
+//returns an object
+const manuel = personData.find((person, idx, persons) => {
+    return person.name === 'Manuel';
+});
+
+console.log(manuel);
+
+const prices = [10.99, 5.99, 3.99, 5.49];
+const tax = 0.19;
+
+
+// **** MAP: taking an array, every item, and returning a new element
+// const taxAdjustedPrices = [];
+
+// for (const price of prices) {
+//     taxAdjustedPrices.push(price * (1 + tax));
+// }
+
+// console.log(taxAdjustedPrices);
+
+//we transformed the array into an array of objects
+// prices.forEach((price, idx, prices) => {
+//     const priceObj = {index: idx, taxAdjPrice: price * (1 + tax) };
+//     taxAdjustedPrices.push(priceObj);
+// });
+const taxAdjustedPrices = prices.map((price, idx, prices) => {
+    const priceObj = {index: idx, taxAdjPrice: price * (1 + tax) };
+    return priceObj;
+});
+
+console.log(prices, taxAdjustedPrices);
+
+
+// **** SORT : converts everything to a string and then its simply sort this
+let sortedPrices = prices.sort();
+console.log("sort array " + sortedPrices);
+
+//return wheter A is grater than B, are they equal or if B is greater?
+sortedPrices = prices.sort((a, b) => {
+    if (a > b) {
+        return 1;
+    } else if (a === b) {
+        return 0;
+    } else {
+        return -1;
+    }
+});
+console.log("sorted array " + sortedPrices);
+console.log("reverse array " + sortedPrices.reverse());
+
+
+// **** FILTER ELEMENTS IN ARRAY: return a new array
+const filteredArray = prices.filter((price, idx, prices) => {
+    return price > 6;
+});
+//or const filteredArray = prices.filter(p => p > 6);
+console.log('filter prices ' + filteredArray)
+
+
+// ***** REDUCE METHOD: reduces an array to a simpler value (sum them up, to any value)
+// let sum = 0;
+// prices.forEach((price) => {
+//     sum += price
+// });
+//1 arg: initial value(0), 2 arg: the first element on array
+const sum = prices.reduce((prevValue, curValue, curIndex, prices) => {
+    return prevValue + curValue;
+}, 0);
+// const sum = prices.reduce((prevValue, curValue) => {
+//     return prevValue + curValue;
+// }, 0);
+console.log("reduce method: " + sum);
+
+
+// **** STRING METHOD SPLIT TO AN ARRAY
+const data = 'new york;10.00;2000';
+let transformedString = data.split(';');
+console.log(transformedString);
+transformedString[1] = +transformedString[1];
+console.log(transformedString);
+
+
+// **** JOIN : join things together
+const nameFragments = ['Marilia', 'Soares'];
+const name = nameFragments.join(' ');
+console.log(name);
+
+
+// ***** SPREAD OPERATOR 
 // when created an object or when created an array and then could use
 // the three dots in there to take an existing object or an existing array {...} [...]
 // and pull out all the key-value pairs or all the elements and add them to the new object/array
@@ -46,8 +155,13 @@ arr2.push('d'); //inserting an element at the end of arr2
 console.log(arr2); // [ 'a', 'b', 'c', 'd' ] 
 console.log(arr); // [ 'a', 'b', 'c' ] 
 
+//not takes an array, instead it takes a list of values, it takes values and returns the smaller value, list of values
+// Math.min(1,2,3);
 
-/************************** Objects **************/
+//and what if I want to work with an array? => spread operator
+console.log(Math.min(...prices));
+
+/************************** OBJECTS **************/
 //CREATE THE OBJECT
 //literal notation 
 var hotel = {}
