@@ -1,4 +1,10 @@
 /***** ARRAYS ******* */
+const numbers = [1, 2, 3];
+
+//array-like object or iterable converting to an array
+const moreNumbers = Array.from('Hi!');
+console.log(moreNumbers);
+
 
 var things = ['Holdor', 1912, 'ice cream'];
 console.log(things);
@@ -18,6 +24,14 @@ console.log(things);
 // removes the first element
 things.shift();
 console.log(things);
+
+//1 arg: starts in.... 2arg: remove first element,
+things.splice(0, 1, 'Good food');
+
+//starts look at last element, from right to left
+// (-1, 1)
+console.log('splice method ' + things);
+
 
 // ************ SPREAD OPERATOR *************
 // when created an object or when created an array and then could use
