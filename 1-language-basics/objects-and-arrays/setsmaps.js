@@ -32,3 +32,25 @@ for (const [key, value] of personData.entries()) {
 for (const key of personData.keys()) {
   console.log(key);
 }
+
+
+// ***** WEAK SET
+
+let person = {name: 'Mah'};
+
+//weak set internally works such that it can only store objects so that it can actually
+//clear these objects for you, release them to garbage collection
+const persons = new WeakSet();
+persons.add(persons);
+
+console.log(persons);
+
+
+// ***** WEAK MAP
+// map will hold a variable onto it and not release it for garbage collection
+const personData = new WeakMap();
+personData.set(person, 'Extra info!');
+
+person = null;
+
+console.log(personData);
