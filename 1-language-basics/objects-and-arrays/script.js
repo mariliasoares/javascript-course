@@ -177,10 +177,12 @@ const copiedPersonsMap = [...persons.map(person => ({
     })
 )];
 
+//when we call a function, '...' is called spread operator, we spread elements of an array in multiple arguments
+// when merging the elements to an array its called REST PARAMETERS
+
 
 //not takes an array, instead it takes a list of values, it takes values and returns the smaller value, list of values
 // Math.min(1,2,3);
-
 //and what if I want to work with an array? => spread operator
 console.log(Math.min(...prices));
 
