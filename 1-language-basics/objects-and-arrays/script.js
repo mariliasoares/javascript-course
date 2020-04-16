@@ -153,13 +153,45 @@ let arr2 = [...arr];
 console.log(arr); // [ 'a', 'b', 'c' ] 
 arr2.push('d'); //inserting an element at the end of arr2 
 console.log(arr2); // [ 'a', 'b', 'c', 'd' ] 
+
+//the copied array is not affected
 console.log(arr); // [ 'a', 'b', 'c' ] 
+
+const persons = [{name: 'Max', age: 30}, {name: 'Marilia', age: 22}];
+//copied the addresses to the places in memory of these objects
+const copiedPersons = [...persons];
+
+//doesnt changed
+persons.push({name: 'Anna', age: 29});
+//changed
+persons[0].age = 31;
+console.log(persons, copiedPersons);
+
+//to avoid that change, would have to copy every object by using map method, return a new object for every person
+const copiedPersonsMap = [...persons.map(person => ({
+        //since I returned something in curly braces, to tell JS this doesnt mark the function body but should be my object
+        //I have to wrap this in an extra pair of parentheses
+        name: person.name,
+        age: person.age
+        //I map all objects in the original array into new objects which have new places in memory
+    })
+)];
+
 
 //not takes an array, instead it takes a list of values, it takes values and returns the smaller value, list of values
 // Math.min(1,2,3);
 
 //and what if I want to work with an array? => spread operator
 console.log(Math.min(...prices));
+
+
+// **** ARRAY DESTRUCTURING SYNTAX
+const nameData = ['Marilia', 'Soares', 'Student', 22];
+
+//splitting an array into variables
+const [ firstName, lastName, ...otherInformation ] = nameData;
+console.log("array destructuring " + firstName, lastName, otherInformation);
+
 
 /************************** OBJECTS **************/
 //CREATE THE OBJECT
