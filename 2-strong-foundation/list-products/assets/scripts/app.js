@@ -15,14 +15,22 @@ class Product {
 class ShoppingCart {
     items = [];
     
-    get totalAmout(arr) {
-        arr.forEach(element => { somatudo += element; }); 
-        this.somatudo = somatudo;
+    set cartItems(value) {
+        this.items = value;
+        this.totalOutput.innerHTML = `<h2>Total: \$${this.totalAmout}</h2>`
+    }
+
+    get totalAmout() {
+        const sum = this.items.reduce((prevVal, curItem) => {
+            return prevVal + curItem.price
+        }, 0);
+        return sum;
     }
 
     addProduct(product) {
-        this.items.push(product);
-        this.totalOutput.innerHTML = `<h2>Total: \$${1}</h2>`
+        const updatedItems = [...this.items];
+        updatedItems.push(product);
+        this.cartItems = updatedItems;
     }
 
     render() {
